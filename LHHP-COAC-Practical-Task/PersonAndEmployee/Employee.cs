@@ -9,7 +9,7 @@ namespace LHHP_COAC_Practical_Task.PersonAndEmployee
 
         public int DilySalary;
 
-        public Employee(string FirstName, string Surname, EmployeePositions position) : base(FirstName, Surname)
+        public Employee(string firstName, string surname, EmployeePositions position) : base(firstName, surname)
         {
             Position = position;
             DilySalary = Position.GetValueFromAttribute();

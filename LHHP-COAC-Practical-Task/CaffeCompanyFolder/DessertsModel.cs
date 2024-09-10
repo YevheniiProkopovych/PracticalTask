@@ -11,10 +11,10 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
 
         public int Day { get; set; }
 
-        public DessertsModel(Desserts dessert, int desserQuantity, int day)
+        public DessertsModel(Desserts dessert, int dessertQuantity, int day)
         {
             DessertType = dessert;
-            DessertsQuantity = desserQuantity;
+            DessertsQuantity = dessertQuantity;
             Day = day;
         }
 

@@ -20,14 +20,14 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
             Day = 1;
         }
 
-        public void BakeDesserts(int countOfDessersToTake)
+        public void BakeDesserts(int countOfDessers)
         {
             var dessertsModels = new List<DessertsModel>();
             var chosenDesserts = new List<Desserts>();
 
-            if (countOfDessersToTake <= Enum.GetValues(typeof(Desserts)).Length)
+            if (countOfDessers <= Enum.GetValues(typeof(Desserts)).Length)
             {
-                while (dessertsModels.Count < countOfDessersToTake)
+                while (dessertsModels.Count < countOfDessers)
                 {
                     Desserts randomDessert = EnumHelpers.GetRandomEnumValue<Desserts>();
 

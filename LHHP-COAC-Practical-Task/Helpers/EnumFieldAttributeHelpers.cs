@@ -8,7 +8,7 @@ namespace LHHP_COAC_Practical_Task.Helpers
         /// <summary>
         /// Takes a value from Enum attribute if exists.
         /// </summary>
-        /// <param name="positionAttribute">Reffer to specific element of enum</param>
+        /// <param name="enumElement">Reffer to specific element of enum</param>
         /// <returns></returns>
         /// <example>
         /// [EnumField(5)]
@@ -18,9 +18,9 @@ namespace LHHP_COAC_Practical_Task.Helpers
         /// </code>
         /// </example>
 
-        public static int GetValueFromAttribute(this Enum positionAttribute)
+        public static int GetValueFromAttribute(this Enum enumElement)
         {
-            var field = positionAttribute.GetType().GetField(positionAttribute.ToString());
+            var field = enumElement.GetType().GetField(enumElement.ToString());
             var attribute = Attribute.GetCustomAttribute(field, typeof(EnumFieldAttribute)) as EnumFieldAttribute;
 
             return attribute == null ? 0 : attribute.Field;

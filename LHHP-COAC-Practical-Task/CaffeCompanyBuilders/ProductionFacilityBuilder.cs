@@ -13,9 +13,9 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyBuilders
             return this;
         }
 
-        public ProductionFacilityBuilder WirhDessertsAssortement(int countOfDessertsToTake)
+        public ProductionFacilityBuilder WirhDessertsAssortement(int dessertsQuantity)
         {
-            Entity.BakeDesserts(countOfDessertsToTake);
+            Entity.BakeDesserts(dessertsQuantity);
 
             return this;
         }

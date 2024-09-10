@@ -10,9 +10,9 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyBuilders
             .WithWorkers(employee)
             .Build();
 
-        public static ProductionFacility ProductionFacilityEntity(List<Employee> employees, int countOfDessertsToBake) => new ProductionFacilityBuilder()
+        public static ProductionFacility ProductionFacilityEntity(List<Employee> employees, int dessertsQuantity) => new ProductionFacilityBuilder()
             .WithWorkers(employees)
-            .WirhDessertsAssortement(countOfDessertsToBake)
+            .WirhDessertsAssortement(dessertsQuantity)
             .Build();
 
         public static MainDepartment MainDepartmentEntity(List<Employee> employees, ProductionFacility production, List<Caffe> caffes) => new MainDepartmentBuilder()

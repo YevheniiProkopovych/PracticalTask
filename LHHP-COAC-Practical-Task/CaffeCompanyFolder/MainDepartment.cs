@@ -21,7 +21,7 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
             Day = 1;
         }
 
-        public MainDepartment EndDay(int nextDayDessertsTypeQuantity)
+        public MainDepartment EndDay(int dessertsQuantity)
         {
             _reports.Add(this.GenerateReport());
             Day = Day + 1;
@@ -29,7 +29,7 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
             _reports.Add(ProductionFacility.GenerateReport());
             ProductionFacility.Day = Day;
             ProductionFacility.DessertsModelsBank.Clear();
-            ProductionFacility.BakeDesserts(nextDayDessertsTypeQuantity);
+            ProductionFacility.BakeDesserts(dessertsQuantity);
 
             foreach (var caffe in Caffes)
             {
