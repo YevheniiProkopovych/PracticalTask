@@ -14,7 +14,7 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
 
         public List<Caffe> Caffes { get; set; } = new List<Caffe>();
 
-        List<string> Reports { get; set; } = new List<string>();
+        private List<string> _reports { get; set; } = new List<string>();
 
         public MainDepartment()
         {
@@ -23,17 +23,17 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
 
         public MainDepartment EndDay(int nextDayDessertsTypeQuantity)
         {
-            Reports.Add(this.GenerateReport());
+            _reports.Add(this.GenerateReport());
             Day = Day + 1;
 
-            Reports.Add(ProductionFacility.GenerateReport());
+            _reports.Add(ProductionFacility.GenerateReport());
             ProductionFacility.Day = Day;
             ProductionFacility.DessertsModelsBank.Clear();
             ProductionFacility.BakeDesserts(nextDayDessertsTypeQuantity);
 
             foreach (var caffe in Caffes)
             {
-                Reports.Add(caffe.GenerateReport());
+                _reports.Add(caffe.GenerateReport());
                 caffe.DessertsModelsBank.Clear();
                 caffe.DessertsModelsSold.Clear();
             }
@@ -45,7 +45,7 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
         public string GetReportsHistory()
         {
             var result = $"{this.GetType().Name}: REPORTS HISTORY: \n";
-            foreach (var report in Reports)
+            foreach (var report in _reports)
             {
                 result += report + "\n";
             }
@@ -59,7 +59,7 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
 
             if (dayId <= Day)
             {
-                foreach (var report in Reports)
+                foreach (var report in _reports)
                 {
                     if (report.Contains($"Day: {dayId}"))
                     {

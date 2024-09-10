@@ -13,8 +13,7 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
 
         public List<DessertsModel> DessertsModelsBank { get; set; } = new List<DessertsModel>();
 
-
-        private static readonly Random random = new Random();
+        private static readonly Random _random = new Random();
 
         public ProductionFacility()
         {
@@ -34,7 +33,7 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
 
                     if (!chosenDesserts.Contains(randomDessert))
                     {
-                        dessertsModels.Add(new DessertsModel(randomDessert, random.Next(2, 6), Day));
+                        dessertsModels.Add(new DessertsModel(randomDessert, _random.Next(2, 6), Day));
                         chosenDesserts.Add(randomDessert);
                     }
                 }

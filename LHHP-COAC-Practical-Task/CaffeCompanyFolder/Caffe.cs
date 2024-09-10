@@ -11,7 +11,7 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
 
         public int CaffeNumber { get; set; }
 
-        private int Income { get; set; }
+        private int _income { get; set; }
 
         public List<Employee> CaffeEmployees { get; set; } = new List<Employee>();
 
@@ -43,7 +43,7 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
             if (selectedDessert.DessertsQuantity >= quantity)
             {
                 selectedDessert.DessertsQuantity -= quantity;
-                Income += EnumFieldAttributeHelpers.GetValueFromAttribute(selectedDessert.DessertType) * quantity;
+                _income += EnumFieldAttributeHelpers.GetValueFromAttribute(selectedDessert.DessertType) * quantity;
 
                 var soldDessert = new DessertsModel(selectedDessert.DessertType, quantity, Day);
 
@@ -62,7 +62,7 @@ namespace LHHP_COAC_Practical_Task.CaffeCompanyFolder
             var result = $"{this.GetType().Name}_{CaffeNumber}: Day: {Day}," +
                          $" Employee count: {CaffeEmployees.Count}," +
                          $" Employee salary summary: {CaffeEmployees.CountEmployeesSalary()}," +
-                         $" Income: {Income}" +
+                         $" Income: {_income}" +
                          $"\nDesserts inventory: ";
 
             foreach (var item in DessertsModelsBank)

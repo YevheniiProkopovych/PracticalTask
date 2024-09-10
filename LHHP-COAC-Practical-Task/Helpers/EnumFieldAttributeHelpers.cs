@@ -20,9 +20,8 @@ namespace LHHP_COAC_Practical_Task.Helpers
 
         public static int GetValueFromAttribute(this Enum positionAttribute)
         {
-            FieldInfo? field = positionAttribute.GetType().GetField(positionAttribute.ToString());
-
-            EnumFieldAttribute? attribute = Attribute.GetCustomAttribute(field, typeof(EnumFieldAttribute)) as EnumFieldAttribute;
+            var field = positionAttribute.GetType().GetField(positionAttribute.ToString());
+            var attribute = Attribute.GetCustomAttribute(field, typeof(EnumFieldAttribute)) as EnumFieldAttribute;
 
             return attribute == null ? 0 : attribute.Field;
         }
